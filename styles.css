@@ -1,0 +1,30 @@
+#cancont {
+    height: 100vh;
+    width: 75vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 75vw;
+}
+
+
+#cont {
+    display: flex;
+    flex-direction: row;
+}
+
+#data {
+    font-family: monospace;
+    color: white;
+    width: 50vw;
+    flex-basis: 25vw;
+    position: relative;
+    font-size: large;
+
+}
+
+.dataText {
+    left: 2vw;
+    position: relative;
+    top: 5vh;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Where the ISS At?</title>
+</head>
+<body style="background-color: black; overflow: hidden;">
+    <div id="cont">
+
+        <div id="data">
+            <div class="dataText" id="longitude"></div>
+            <div class="dataText" id="latitude"></div>
+            <div class="dataText" id="altitude"></div>
+            <div class="dataText" id="location"></div>
+
+        </div>
+        <div id="cancont">
+            <canvas id="can"></canvas>
+        </div>
+    </div>
+</body>
+<script src="./issData.js"></script>
+<script src="./main.js" type="module"></script>
+</html>
