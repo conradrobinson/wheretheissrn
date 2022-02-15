@@ -1,8 +1,4 @@
 import * as THREE from 'https://unpkg.com/three@0.137.5/build/three.module.js'
-import vertexShader from './vert.glsl'
-import fragmentShader from './frag.glsl'
-import atmosVert from './atmosvert.glsl'
-import atmosFrag from './atmosfrag.glsl'
 
 
 //url params
@@ -38,8 +34,10 @@ const issMesh = new THREE.Mesh(
 )
 
 
-
+const group = new THREE.Group()
 //sphere
+fetch("./frag.glsl").then(fragmentShader => fragmentShader.text()).then(fragmentShader => {
+  fetch("./vert.glsl").then(vertexShader => vertexShader.text()).then(vertexShader => {
 const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(earthRad, 50, 50),
     new THREE.ShaderMaterial({
@@ -52,7 +50,12 @@ const sphere = new THREE.Mesh(
       }
     })
     )
+    group.add(sphere)
+
+  })})
 //atmosphere
+fetch("./atmosfrag.glsl").then(atmosFrag => atmosFrag.text()).then(atmosFrag => {
+  fetch("./atmosvert.glsl").then(atmosVert => atmosVert.text()).then(atmosVert => {
 const atmosphere = new THREE.Mesh(
   new THREE.SphereGeometry(5, 50, 50),
   new THREE.ShaderMaterial({
@@ -64,10 +67,10 @@ const atmosphere = new THREE.Mesh(
   )
   atmosphere.scale.set(1.25, 1.25, 1.25)
 scene.add(atmosphere)
+})})
 
-const group = new THREE.Group()
-group.add(sphere)
 group.add(issMesh)
+
 scene.add(group)
 function animate() {
     requestAnimationFrame(animate)
