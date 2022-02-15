@@ -1,2 +1,2 @@
 # wheretheissrn
-Tracks the location of the International Space Station form an api mapped to a globe
+Tracks the location of the International Space Station from an api mapped to a globe
